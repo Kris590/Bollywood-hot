@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hot Bollywood Divas PDF – Only ₹10</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      padding: 30px;
+    }
+    h1 {
+      color: #ff4081;
+    }
+    p {
+      font-size: 18px;
+      margin-top: -10px;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .pay-btn {
+      display: block;
+      background: #333;
+      color: white;
+      padding: 15px;
+      margin: 10px auto;
+      width: 80%;
+      max-width: 300px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .pay-btn:hover {
+      background: #ff4081;
+    }
+    .hidden {
+      display: none;
+    }
+    #uploadSection, #checking, #downloadSection {
+      margin-top: 40px;
+    }
+    input[type="file"] {
+      background: white;
+      color: black;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .loader {
+      border: 6px solid #333;
+      border-top: 6px solid #ff4081;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin: 20px auto;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    a.download-link {
+      display: inline-block;
+      padding: 15px 25px;
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hot Bollywood Divas PDF – Only ₹10</h1>
+    <p>Download a premium PDF featuring a sizzling collection of high-quality images of top Bollywood actresses. Just ₹10 to unlock instantly.</p>
+    
+    <div class="buttons">
+      <button class="pay-btn" onclick="redirectToUPI()">Pay with PhonePe / Google Pay / Paytm</button>
+    </div>
+
+    <div id="uploadSection" class="hidden">
+      <h3>Upload Payment Screenshot</h3>
+      <input type="file" id="screenshotInput" accept="image/*" onchange="startChecking()" />
+    </div>
+
+    <div id="checking" class="hidden">
+      <div class="loader"></div>
+      <p>Verifying payment… please wait.</p>
+    </div>
+
+    <div id="downloadSection" class="hidden">
+      <h3>Payment Verified!</h3>
+      <a href="images-to-pdf_compressed.pdf" download class="download-link">Download Now</a>
+    </div>
+  </div>
+
+  <script>
+    function redirectToUPI() {
+      window.location.href = "upi://pay?pa=kmarathe59@ibl&pn=HotPDF&am=10&cu=INR";
+      document.getElementById("uploadSection").classList.remove("hidden");
+    }
+
+    function startChecking() {
+      document.getElementById("checking").classList.remove("hidden");
+
+      setTimeout(() => {
+        document.getElementById("checking").classList.add("hidden");
+        document.getElementById("downloadSection").classList.remove("hidden");
+      }, 20000); // 20 seconds
+    }
+  </script>
+</body>
+</html>
